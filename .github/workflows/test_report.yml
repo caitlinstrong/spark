@@ -26,7 +26,8 @@ on:
 
 jobs:
   test_report:
-    if: github.event.workflow_run.conclusion != 'skipped'
+    if: github.event.workflow_run.conclusion != 'skipped' ||
+        github.repository_owner == 'apache'
     runs-on: ubuntu-latest
     steps:
     - name: Download test results to report
